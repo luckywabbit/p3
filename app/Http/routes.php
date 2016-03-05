@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-	return 'Hello World';
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +24,15 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+	
+	Route::get('/', function () {
+    //return view('welcome');
+	return 'Hello World';
+});
+
+
+
+Route::get('/li', 'liController@getLiIndex');
+Route::get('/user', 'userController@getUserIndex');
+   
 });
