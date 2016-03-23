@@ -12,7 +12,14 @@ class userController extends BaseController
      /**
     * Responds to requests to /user
     */
-    public function getUserIndex() {
-        return 'Random User Generator';
+	
+	    public function getUserIndex() {
+		//return 'Lorum Ipsum Generator';
+		 return view('li.li', ['abc'=>'456', 'lorum'=>'ipsum dorum sut']);
+		
+       //return view('li.li') -> with('abc', '123');
     }
+	
+	
+	
 }
