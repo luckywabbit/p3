@@ -25,7 +25,10 @@
 <div class="row">
 <div class="col-md-12">
   <header>
-    <h1>Lorum Ipsum Random user Generator</h1>
+  
+    <a href="http://p3.loc"><h1>Logo Lorum Ipsum Random user Generator</h1></a>
+    
+    
     <nav>
       <ul>
         <li><a href="/li">Lorum Ipsum Generator</a></li>

@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Faker\Factory as Faker;
+
 class userController extends BaseController
 {
      /**
@@ -14,12 +16,48 @@ class userController extends BaseController
     */
 	
 	    public function getUserIndex() {
-		//return 'Lorum Ipsum Generator';
-		 return view('li.li', ['abc'=>'456', 'lorum'=>'ipsum dorum sut']);
-		
-       //return view('li.li') -> with('abc', '123');
-    }
+			
+			if (isset($_GET["userCount"]) && $_GET["userCount"] > 0 ) {
+   				$userCount = $_GET["userCount"];
+				
+				
+				$faker = Faker::create();
+				
+				$userName = $faker->name;
+				$userEmail = $faker->email;
+				$userCity = $faker->city;
+				$userCC = $faker->creditCardNumber;
+				$userMemberSince = $faker->year;
+				
+				
+				
+		 		return view('user.user', ['abc'=>$userCount , 
+								 'userName' => $userName,
+								 'userEmail' => $userEmail,
+								 'userCity' => $userCity,
+								 'userMemberSince' => $userMemberSince,
+								 'userCC' => $userCC
+								 ]);
+			}else{
+				
+				$userName = 'Undefined';
+				$userEmail = 'Undefined';
+				$userCity = 'Undefined';
+				$userCC = 'Undefined';
+				$userMemberSince = 'Undefined';
+				
+				
+						 		return view('user.user', ['abc'=>$userCount , 
+								 'userName' => $userName,
+								 'userEmail' => $userEmail,
+								 'userCity' => $userCity,
+								 'userMemberSince' => $userMemberSince,
+								 'userCC' => $userCC
+								 ]);
+	
+			}#End if/else
+    }#End getUserIndex()
 	
 	
 	
-}
+}#End class userController extends BaseController

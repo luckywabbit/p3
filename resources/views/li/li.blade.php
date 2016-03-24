@@ -18,11 +18,29 @@ such as a page specific stylesheets.
 
 @section('content')
 
-      <?php  //echo $title; ?>
-      <!--Delete-->
+
       
-      <h1>Variable Data: {{ $abc }} </h1>
-      <h2>Lorum: {{$lorum}}</h2>
+      <h1>Here are your {{ $abc }} paragraphs of Lorum Ipsum</h1>
+      @foreach ($lorum as $value)
+    				<p>{{ $value}}</p>
+				@endforeach
+      
+      
+      
+      {{--<div>{{$lorum}}</div>--}}
+      
+        {{--@if ($lorum)
+            	@foreach ($lorum as $value)
+    				<p>{{ $value}}</p>
+				@endforeach
+        @else
+            <p>please select number of paragraphs</p>
+        @endif --}}
+      
+      
+      
+      
+
 			{{-- Blade Comment 
             
             @if($this)

@@ -18,11 +18,16 @@ such as a page specific stylesheets.
 
 @section('content')
 
-      <?php  //echo $title; ?>
-      <!--Delete-->
+
+      <h1>Name: {{ $userName }} </h1>
+ 	  <h1>eMail: {{ $userEmail }} </h1>
+      <h1>City: {{ $userCity }} </h1>
+      <h1>Credit Card: {{ $userCC }} </h1>
+      <h1>Member Since: {{ $userMemberSince }} </h1> 
+      
       
       <h1>Variable Data: {{ $abc }} </h1>
-      <h2>Lorum: {{$lorum}}</h2>
+      
 			{{-- Blade Comment 
             
             @if($this)
