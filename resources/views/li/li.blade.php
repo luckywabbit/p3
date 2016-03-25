@@ -21,21 +21,16 @@ such as a page specific stylesheets.
 
       
       <h1>Here are your {{ $abc }} paragraphs of Lorum Ipsum</h1>
-      @foreach ($lorum as $value)
-    				<p>{{ $value}}</p>
-				@endforeach
+
+
       
-      
-      
-      {{--<div>{{$lorum}}</div>--}}
-      
-        {{--@if ($lorum)
+        @if ($lorum)
             	@foreach ($lorum as $value)
     				<p>{{ $value}}</p>
 				@endforeach
         @else
             <p>please select number of paragraphs</p>
-        @endif --}}
+        @endif
       
       
       

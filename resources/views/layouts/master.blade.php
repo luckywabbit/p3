@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>
-        {{-- Yield the title if it exists, otherwise default to 'Foobooks' --}}
-        @yield('title','Foobooks')
+        {{-- Yield the title if it exists, otherwise default to 'Developers Best Friend' --}}
+        @yield('title','Developers Best Friend')
     </title>
 
     <meta charset='utf-8'>
@@ -23,10 +23,10 @@
     
  <div class="container">
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-12 header">
   <header>
   
-    <a href="http://p3.loc"><h1>Logo Lorum Ipsum Random user Generator</h1></a>
+    <a href="/"><h1>Developers Best Friend</h1></a>
     
     
     <nav>
@@ -51,7 +51,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 footer">
     <footer> &copy; {{ date('Y') }} </footer>
   </div>
 </div>

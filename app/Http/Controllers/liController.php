@@ -27,12 +27,7 @@ class liController extends BaseController
 foreach ($paragraphs as &$value) {
     $liOutput .=   $value . '<br>';
 }
-				
-				
-				
-				
-				
-				
+
 				//$liText = Lipsum::short()->text(3);
 				
 				

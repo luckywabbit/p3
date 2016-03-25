@@ -17,42 +17,55 @@ class userController extends BaseController
 	
 	    public function getUserIndex() {
 			
+			$usersGenerated = [];
+			$userGenerated = [];
+			
 			if (isset($_GET["userCount"]) && $_GET["userCount"] > 0 ) {
    				$userCount = $_GET["userCount"];
 				
 				
+				
+				
+				
+				for ($x = 1; $x <= $userCount; $x++) {
 				$faker = Faker::create();
 				
 				$userName = $faker->name;
 				$userEmail = $faker->email;
-				$userCity = $faker->city;
-				$userCC = $faker->creditCardNumber;
+				$userCity = $faker->city;	
 				$userMemberSince = $faker->year;
 				
+				//array_push($userGenerated, array("Name" => $userName, "Email" => $userEmail , "City" => $userCity, "Member Since" => $userMemberSince));
+
+				//array_push($usersGenerated, $userGenerated);
 				
+				//$userGenString = implode(" ",$usersGenerated);	
+
+				$userGenerated = 'Name: ' . $userName . ' Email: ' .  $userEmail . ' City: ' . $userCity. ' Member Since: ' . $userMemberSince;
+				array_push($usersGenerated, $userGenerated);
+}			
 				
-		 		return view('user.user', ['abc'=>$userCount , 
-								 'userName' => $userName,
-								 'userEmail' => $userEmail,
-								 'userCity' => $userCity,
-								 'userMemberSince' => $userMemberSince,
-								 'userCC' => $userCC
+			//$users = var_dump($usersGenerated);
+				//var_dump($usersGenerated);
+				
+		 		return view('user.user', [
+								 'userCount'=>$userCount , 
+								 'usersGenerated' => $usersGenerated
+								
 								 ]);
 			}else{
 				
-				$userName = 'Undefined';
-				$userEmail = 'Undefined';
-				$userCity = 'Undefined';
-				$userCC = 'Undefined';
-				$userMemberSince = 'Undefined';
+				$userName = 'undefined';
+				$userEmail = 'undefined';
+				$userCity = 'undefined';
+			
+				$userMemberSince = 'undefined';
 				
 				
-						 		return view('user.user', ['abc'=>$userCount , 
-								 'userName' => $userName,
-								 'userEmail' => $userEmail,
-								 'userCity' => $userCity,
-								 'userMemberSince' => $userMemberSince,
-								 'userCC' => $userCC
+						 		return view('user.user', [
+								 'userCount'=>$userCount , 
+								 'usersGenerated' => $usersGenerated
+								
 								 ]);
 	
 			}#End if/else

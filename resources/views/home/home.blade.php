@@ -2,19 +2,17 @@
 
 
 @section('title')
-    Home - Lorum Ipsum Generator / Random User
+    Developers Best Friend
 @stop
 
 
 {{--
-This `head` section will be yielded right before the closing
-</head>
-tag.
+This `head` section will be yielded right before the closing </head> tag.
 Use it to add specific things that *this* View needs in the head,
 such as a page specific stylesheets.
 --}}
 @section('head')
-<link href="/css/homeStyle.css" type='text/css' rel='stylesheet'>
+{{--<link href="/css/homeStyle.css" type='text/css' rel='stylesheet'>--}}
 @stop
 
 
@@ -29,37 +27,36 @@ such as a page specific stylesheets.
 
 <div class="row">
   <div class="col-md-6">
+  	<div class="genLi">
     <h2>Lorum Ipsum Generator</h2>
     <form action="/li" method="get">
-      Number of Paragraphs<br>
-      <input type="number" name="liCount" placeholder="5">
+      Number of Paragraphs (Max:20)<br>
+      <input type="number" name="liCount" placeholder="5" min="1" max="20">
       <br>
-      
       <input type="submit" value="Get Lorum Ipsum">
     </form>
+    </div>
   </div>
   <!--Column End-->
   <div class="col-md-6">
+  	<div class="genUser">
     <h2>Random User Generator</h2>
-        <form action="/user" method="get">
-      Number of Paragraphs<br>
-      <input type="number" name="userCount" placeholder="5">
+    <form action="/user" method="get">
+      Number of Paragraphs (Max: 20)<br>
+      <input type="number" name="userCount" placeholder="5" min="1" max="20">
       <br>
-      
       <input type="submit" value="Get Random Users">
     </form>
-    
-    
+    </div>
   </div>
   <!--Column End--> 
 </div>
-<!--Row End-->
-
-
+<!--Row End--> 
 
 {{--
 <h1>Variable Data: {{ $abc }} </h1>
-<h2>Lorum: {{$lorum}}</h2>--}}
+<h2>Lorum: {{$lorum}}</h2>
+--}}
 
 {{-- Blade Comment 
             
@@ -84,5 +81,5 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body') 
-<script src="/js/scripts.js"></script> 
+{{--<script src="/js/scripts.js"></script> --}}
 @stop
