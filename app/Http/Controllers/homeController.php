@@ -7,19 +7,18 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Illuminate\Http\Request;
+
 class homeController extends BaseController
 {
      /**
     * Responds to requests to /
     */
-    public function getHomeIndex() {
-		//return 'Lorum Ipsum Generator';
+    public function getHomeIndex(Request $request) {
+
+
 		
-		
-		
-		
-		
-		 return view('home.home', ['abc'=>'123', 'lorum'=>'ipsum']);
+		 return view('home.home');
 		
       
     }

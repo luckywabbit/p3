@@ -20,7 +20,8 @@ such as a page specific stylesheets.
 
 
       
-      <h1>Here are your {{ $abc }} paragraphs of Lorum Ipsum</h1>
+      <h3>Here you go pal, {{ $liCount }} paragraphs of Lorum Ipsum. Have a great day!</h3>
+    
 
 
       

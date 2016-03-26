@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Illuminate\Http\Request;
+
 use Faker\Factory as Faker;
 
 class userController extends BaseController
@@ -15,62 +17,42 @@ class userController extends BaseController
     * Responds to requests to /user
     */
 	
-	    public function getUserIndex() {
+	    public function getUserIndex(Request $request) {
 			
 			$usersGenerated = [];
 			$userGenerated = [];
 			
-			if (isset($_GET["userCount"]) && $_GET["userCount"] > 0 ) {
-   				$userCount = $_GET["userCount"];
-				
-				
-				
-				
+			$userCount = $request->input('userCount');
+			
+			if(isset($userCount)&& $userCount > 0 && $userCount <= 20  && $userCount != null){
+				//echo 'Set';
 				
 				for ($x = 1; $x <= $userCount; $x++) {
-				$faker = Faker::create();
 				
+				$faker = Faker::create();		
 				$userName = $faker->name;
 				$userEmail = $faker->email;
 				$userCity = $faker->city;	
 				$userMemberSince = $faker->year;
-				
-				//array_push($userGenerated, array("Name" => $userName, "Email" => $userEmail , "City" => $userCity, "Member Since" => $userMemberSince));
-
-				//array_push($usersGenerated, $userGenerated);
-				
-				//$userGenString = implode(" ",$usersGenerated);	
 
 				$userGenerated = 'Name: ' . $userName . ' Email: ' .  $userEmail . ' City: ' . $userCity. ' Member Since: ' . $userMemberSince;
 				array_push($usersGenerated, $userGenerated);
-}			
-				
-			//$users = var_dump($usersGenerated);
-				//var_dump($usersGenerated);
+				}// END for loop	
 				
 		 		return view('user.user', [
 								 'userCount'=>$userCount , 
 								 'usersGenerated' => $usersGenerated
-								
-								 ]);
+								]);
+
 			}else{
 				
-				$userName = 'undefined';
-				$userEmail = 'undefined';
-				$userCity = 'undefined';
-			
-				$userMemberSince = 'undefined';
-				
-				
-						 		return view('user.user', [
-								 'userCount'=>$userCount , 
-								 'usersGenerated' => $usersGenerated
-								
-								 ]);
-	
+					//echo 'Not Set';
+							
+					return redirect()->action('homeController@getHomeIndex');
+					
+					
 			}#End if/else
-    }#End getUserIndex()
-	
-	
+			
+	}#End getUserIndex()
 	
 }#End class userController extends BaseController

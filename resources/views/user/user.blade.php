@@ -18,8 +18,8 @@ such as a page specific stylesheets.
 
 @section('content')
 
-
-				<div class=""><h3>Here are your {{ $userCount}} users:</h3></div>
+				 <h3>Here you go pal, {{ $userCount }} random users. Have a great day!</h3>
+				
                
                                     
                     @foreach ($usersGenerated as $value)

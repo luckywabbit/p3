@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Illuminate\Http\Request;
+
 use Badcow\LoremIpsum\Generator;
 
 
@@ -15,29 +17,33 @@ class liController extends BaseController
      /**
     * Responds to requests to /li
     */
-    public function getLiIndex() {
+    public function getLiIndex(Request $request) {
 		
-			if (isset($_GET["liCount"]) && $_GET["liCount"] > 0 ) {
+			$liCount = $request->input('liCount');
+			
+			if(isset($liCount)&& $liCount > 0 && $liCount<= 20 && $liCount != null){
+				//echo 'Set';
 				
 				$generator = new Generator();
-				$paragraphs = $generator->getParagraphs($_GET["liCount"]);
-				//$liOutput = implode('<p>', $paragraphs);
+				$paragraphs = $generator->getParagraphs($liCount);
 				$liOutput = "";
 				
-foreach ($paragraphs as &$value) {
-    $liOutput .=   $value . '<br>';
-}
+				foreach ($paragraphs as &$value) {
+    				$liOutput .=   $value . '<br>';
+				}
 
-				//$liText = Lipsum::short()->text(3);
 				
-				
-   				$liCount = $_GET["liCount"];
 		 		//return 'Lorum Ipsum Generator';
-		 		return view('li.li', ['abc'=>$liCount, 'lorum'=>$paragraphs]);
-			}else{
-				return view('li.li', ['abc'=>'Please select number of paragraphs', 'lorum'=>'ipsum dorum sut']);
-	
-			}#End if/else		
+		 		return view('li.li', ['liCount'=>$liCount, 'lorum'=>$paragraphs]);
 				
+				
+				}else{
+
+					//echo 'Not set';
+					
+					return redirect()->action('homeController@getHomeIndex');
+					
+				}
+			
     }#End getLiIndex()
 }#End class liController extends BaseController

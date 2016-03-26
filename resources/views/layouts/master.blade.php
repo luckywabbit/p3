@@ -26,15 +26,8 @@
 <div class="col-md-12 header">
   <header>
   
-    <a href="/"><h1>Developers Best Friend</h1></a>
+    <a href="/"><h1>The Developers SuperEST BestEST Friend Ever!</h1></a>
     
-    
-    <nav>
-      <ul>
-        <li><a href="/li">Lorum Ipsum Generator</a></li>
-        <li><a href="/user">Random User Generator</a></li>
-      </ul>
-    </nav>
   </header>
 </div>
 </div>

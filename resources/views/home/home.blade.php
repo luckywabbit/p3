@@ -19,7 +19,16 @@ such as a page specific stylesheets.
 @section('content')
 <div class="row">
   <div class="col-md-12">
-    <h1>Intro</h1>
+ 
+   <p>Hi, welcome to the Developers SuperEST BestEST Friend Ever!</p>
+    <p>Need a few paragraphs of Lorum Ipsum or a few random user profiles to get your project started?</p>
+    <p>Just tell me how many you need and... <span class="bam">BAM!</span></p>
+    <p>Just like that... you got it pal!</p>
+    
+    <p>...cuz we're buddys! :D</p>
+    
+    
+
   </div>
   <!--Column End--> 
 </div>
@@ -30,8 +39,9 @@ such as a page specific stylesheets.
   	<div class="genLi">
     <h2>Lorum Ipsum Generator</h2>
     <form action="/li" method="get">
-      Number of Paragraphs (Max:20)<br>
-      <input type="number" name="liCount" placeholder="5" min="1" max="20">
+    {{ csrf_field() }}
+      Number of Paragraphs (Min:1 - Max:20)<br>
+      <input type="number" name="liCount" placeholder="1-20" min="1" max="20">
       <br>
       <input type="submit" value="Get Lorum Ipsum">
     </form>
@@ -42,8 +52,9 @@ such as a page specific stylesheets.
   	<div class="genUser">
     <h2>Random User Generator</h2>
     <form action="/user" method="get">
-      Number of Paragraphs (Max: 20)<br>
-      <input type="number" name="userCount" placeholder="5" min="1" max="20">
+    {{ csrf_field() }}
+      Number of Random Users (Min:1 - Max: 20)<br>
+      <input type="number" name="userCount" placeholder="1-20" min="1" max="20">
       <br>
       <input type="submit" value="Get Random Users">
     </form>
@@ -53,10 +64,7 @@ such as a page specific stylesheets.
 </div>
 <!--Row End--> 
 
-{{--
-<h1>Variable Data: {{ $abc }} </h1>
-<h2>Lorum: {{$lorum}}</h2>
---}}
+
 
 {{-- Blade Comment 
             
