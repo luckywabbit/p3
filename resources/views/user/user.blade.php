@@ -2,7 +2,7 @@
 
 
 @section('title')
-    User Generator
+    Developers SuperEST BestEST Friend Ever! | Random User Results
 @stop
 
 
@@ -15,73 +15,33 @@ such as a page specific stylesheets.
     {{--<link href="/css/userStyle.css" type='text/css' rel='stylesheet'>--}}
 @stop
 
-
-@section('content')
-
-				 <h3>Here you go pal, {{ $userCount }} random users. Have a great day!</h3>
-				
-               
-                                    
-                    @foreach ($usersGenerated as $value)
-                    		<div class="user">{{ $value}}</div>
-                    
-                    
-              		@endforeach
-              
-    				
-                
-                
-                
-                
-             {{--
-             @foreach ($usersGenerated as $key)
-                 {{ $key["Name"] }}
-                 {{ $key["Email"] }}
-             @endforeach
-             --}}
-                            
-                
-                
-                
-                
-		      {{-- @foreach ($usersGenerated as $userGenerated)
-              		
-                    <div class="user">
-                    @foreach ($userGenerated as $value)
-                    		{{ $value}}
-                    
-                    
-              		@endforeach
-              
-    				</div>
-				@endforeach--}}
-
-      
-      
-      
-      
-			{{-- Blade Comment 
-            
-            @if($this)
-            	Do this
-            @else
-            	do this
-             @endif
-            
-            --}}
-      
-      
-
-
-
+@section('nav')
+    <a href="/">Home</a>
 @stop
 
 
-{{--
-This `body` section will be yielded right before the closing </body> tag.
-Use it to add specific things that *this* View needs at the end of the body,
-such as a page specific JavaScript files.
---}}
-@section('body')
-   {{-- <script src="/js/user/scripts.js"></script>--}}
+
+@section('content')
+
+    <h3>Here you go pal, {{ $userCount }} random users. Have a great day!</h3>
+
+	{{--Loop through the $usersGenerated array - use $index to number random avatar image--}}
+    @foreach ($usersGenerated as $index => $element)
+        <div class="user col-md-3">
+            <div class="userAvatar">
+                <img src="http://loremflickr.com/100/100/cat?random={{$index}}"/>
+            </div>
+
+            <div class="userInfo">
+                <div class="userName"><span>Name: </span>{{$element['Name']}}</div>
+                <div class="userEmail"><span>Email: </span>{{$element['Email']}}</div>
+                <div class="userCity"><span>City: </span>{{$element['City']}}</div>
+                <div class="userMemberSince"><span>Member Since: </span>{{$element['Member Since']}}</div>
+            </div>
+        </div>
+
+
+
+    @endforeach
+
 @stop

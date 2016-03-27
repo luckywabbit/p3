@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Lorum Ipsum Generator
+    Developers SuperEST BestEST Friend Ever! | Lorum Ipsum Results
 @stop
 
 
@@ -15,37 +15,40 @@ such as a page specific stylesheets.
     <link href="/css/liStyle.css" type='text/css' rel='stylesheet'>
 @stop
 
+@section('nav')
+    <a href="/">Home</a>
+@stop
 
 @section('content')
 
 
-      
-      <h3>Here you go pal, {{ $liCount }} paragraphs of Lorum Ipsum. Have a great day!</h3>
-    
+
+    <h3>Here you go pal, {{ $liCount }} paragraphs of Lorum Ipsum. Have a great day!</h3>
 
 
-      
-        @if ($lorum)
-            	@foreach ($lorum as $value)
-    				<p>{{ $value}}</p>
-				@endforeach
-        @else
-            <p>please select number of paragraphs</p>
-        @endif
-      
-      
-      
-      
 
-			{{-- Blade Comment 
-            
-            @if($this)
-            	Do this
-            @else
-            	do this
-             @endif
-            
-            --}}
+
+    @if ($lorum)
+        @foreach ($lorum as $value)
+            <p>{{ $value}}</p>
+        @endforeach
+    @else
+        <p>please select number of paragraphs</p>
+    @endif
+
+
+
+
+
+    {{-- Blade Comment
+
+    @if($this)
+        Do this
+    @else
+        do this
+     @endif
+
+    --}}
 
 
 

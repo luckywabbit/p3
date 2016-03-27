@@ -65,6 +65,41 @@ section{
 	min-height:300px;
 	}
 
+.user{
+	border:1px solid #ccc;
+	padding:15px 0;
+	text-align:center;
+	}
+
+.userAvatar{
+	text-align:center;
+	}
+
+.userAvatar img{
+	height:100px;
+	width:100px;
+	background:#ccc;
+}
+.userAvatar img{
+
+	border-radius:50px;
+	
+	}
+
+
+.userInfo{
+
+    display: inline-block;
+    text-align: left;
+	border:1px solid #ccc;
+	padding:5px;
+	margin-top:10px;
+	}
+
+.userInfo span{
+	font-weight:bold;
+	}
+
 .footer{
 	border-top:1px solid #000;
 	border-bottom-left-radius: 15px;
