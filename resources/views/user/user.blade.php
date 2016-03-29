@@ -12,10 +12,11 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific stylesheets.
 --}}
 @section('head')
-    {{--<link href="/css/userStyle.css" type='text/css' rel='stylesheet'>--}}
+
 @stop
 
 @section('nav')
+	{{-- Additional navigation to help user navigate back Home --}}
     <a href="/">Home</a>
 @stop
 
@@ -29,7 +30,7 @@ such as a page specific stylesheets.
     @foreach ($usersGenerated as $index => $element)
         <div class="user col-md-3">
             <div class="userAvatar">
-                <img src="http://loremflickr.com/100/100/cat?random={{$index}}"/>
+                <img src="http://loremflickr.com/100/100/cat?random={{$index}}" alt="User {{$index}}"/>
             </div>
 
             <div class="userInfo">
@@ -39,8 +40,6 @@ such as a page specific stylesheets.
                 <div class="userMemberSince"><span>Member Since: </span>{{$element['Member Since']}}</div>
             </div>
         </div>
-
-
 
     @endforeach
 

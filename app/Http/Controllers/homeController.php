@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Http\Request;
 
-class homeController extends BaseController
+class homeController extends Controller
 {
     /**
      * Responds to requests to /

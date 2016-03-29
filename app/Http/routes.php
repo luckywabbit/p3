@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('/', 'homeController@getHomeIndex');
 
-Route::get('/li', 'liController@getLiIndex');
-Route::get('/user', 'userController@getUserIndex');
+Route::post('/li', 'liController@postLiIndex');
+Route::post('/user', 'userController@postUserIndex');
    
 });

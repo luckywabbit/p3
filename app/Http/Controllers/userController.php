@@ -11,60 +11,49 @@ use Illuminate\Http\Request;
 
 use Faker\Factory as Faker;
 
-class userController extends BaseController
+class userController extends Controller
 {
     /**
      * Responds to requests to /user
      */
 
-    public function getUserIndex(Request $request)
+    public function postUserIndex(Request $request)
     {
-
+		//validate Request
+		$this->validate($request, [
+        	'userCount' => 'required|numeric|min:1|max:20'
+    	]);
+	
+		
+		// declare variables
         $usersGenerated = [];
         $userGenerated = [];
 
+		// Get requested number of users
         $userCount = $request->input('userCount');
 
-        if (isset($userCount) && $userCount > 0 && $userCount <= 20 && $userCount != null) {
-            //echo 'Set';
-
-            for ($x = 1; $x <= $userCount; $x++) {
-
+         for ($x = 1; $x <= $userCount; $x++) {
+				//Create fake user
                 $faker = Faker::create();
-                $userName = $faker->name;
-                $userEmail = $faker->email;
-                $userCity = $faker->city;
-                $userMemberSince = $faker->year;
 
-
+				// Create array from user variables
                 $userGenerated = array(
-                    'Name' => $userName,
-                    'Email' => $userEmail,
-                    'City' => $userCity,
-                    'Member Since' => $userMemberSince
+                    'Name' => $faker->name,
+                    'Email' => $faker->email,
+                    'City' => $faker->city,
+                    'Member Since' => $faker->year
                 );
 
-
-                /*$userGenerated = 'Name: ' . $userName . ' Email: ' .  $userEmail . ' City: ' . $userCity. ' Member Since: ' . $userMemberSince;*/
-
+				//push $userGenerated array into $usersGenerated creating multidimentional array
                 array_push($usersGenerated, $userGenerated);
-            }// END for loop
+          }// END for loop
 
-            //dd($usersGenerated);
-
-            return view('user.user', [
+			//return user view with $userCount and $usersGenerated array
+          return view('user.user', [
                 'userCount' => $userCount,
                 'usersGenerated' => $usersGenerated
-            ]);
+          ]);
 
-        } else {
-
-            //echo 'Not Set';
-
-            return redirect()->action('homeController@getHomeIndex');
-
-
-        }#End if/else
 
     }#End getUserIndex()
 
