@@ -1,7 +1,7 @@
 # P3 - Lorem Ipsum and Random User Generators
 
 ## Live URL
-http:p3.luckywabbit.me
+http://p3.luckywabbit.me
 
 ## Description
 Laravel app demonstrating MVC pattern,use of packages, and server side validation

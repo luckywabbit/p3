@@ -18,4 +18,9 @@ class homeController extends Controller
     {
         return view('home.home');
     }
+	
+	    public function getHomeRedirect(Request $request)
+    {
+        return redirect()->action('homeController@getHomeIndex')->with('errors', 'true');;
+    }
 }

@@ -24,13 +24,11 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-	
-/*	Route::get('/', function () {
-    //return view('welcome');
-	return 'Hello World';
-});*/
+
 
 Route::get('/', 'homeController@getHomeIndex');
+Route::get('/li', 'homeController@getHomeRedirect');
+Route::get('/user', 'homeController@getHomeRedirect');
 
 Route::post('/li', 'liController@postLiIndex');
 Route::post('/user', 'userController@postUserIndex');
