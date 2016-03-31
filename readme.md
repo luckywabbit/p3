@@ -7,11 +7,10 @@ http://p3.luckywabbit.me
 Laravel app demonstrating MVC pattern,use of packages, and server side validation
 
 ## Demo
-
+https://drive.google.com/file/d/0B3nqEWHg6Uy3eGpsamdORGRkV2s/view?usp=sharing
 
 ## Details for teaching team
 Random user avatars created using http://loremflickr.com
-
 
 ## Outside code
 
